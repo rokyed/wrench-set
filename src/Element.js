@@ -57,8 +57,10 @@ export default class Element {
 			let currentDepth = 0
 
 			while (true) {
-				if (currentDepth >= maximumDepth)
+				if (currentDepth >= maximumDepth) {
+					target = null
 					break
+				}
 
 				let parent = target.parentNode
 
