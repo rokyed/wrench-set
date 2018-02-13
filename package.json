@@ -1,11 +1,16 @@
 {
-  "name": "front-end-core",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+ "name": "front-end-core",
+ "version": "1.0.0",
+ "description": "",
+ "main": "index.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "manual-test": "./node_modules/.bin/parcel --no-cache ./test.html"
+ },
+ "author": "Andrei Bazavan <rokyed@gmail.com>",
+ "license": "ISC",
+ "devDependencies": {
+  "babel-preset-es2015-ie": "^6.7.0",
+  "parcel-bundler": "^1.5.1"
+ }
 }
