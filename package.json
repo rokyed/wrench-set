@@ -5,7 +5,9 @@
  "main": "index.js",
  "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",
-  "manual-test": "./node_modules/.bin/parcel --no-cache ./test.html"
+  "manual-test": "./node_modules/.bin/parcel --no-cache ./test.html",
+  "build-documentation": "./node_modules/.bin/documentation build ./index.js -o ./README.md -f md",
+  "lint-documentation": "./node_modules/.bin/documentation lint ./index.js"
  },
  "author": "Andrei Bazavan <rokyed@gmail.com>",
  "license": "ISC",

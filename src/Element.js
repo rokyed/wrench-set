@@ -1,22 +1,29 @@
+/**
+ * @kind class
+ * @name Element
+ * @public
+ * @param {Object} config
+ * @param {string} [config.elementType="div"] type of node we are going to be
+ * @param {string} config.className class names the self element will take
+ * @param {string} config.innerHTML HTML that will be applied when element it's initialized
+ * @param {DOMElement} [config.renderTo=null] element on which to render, if not provided, you have to call renderTo manually to render on element
+ * @param {boolean} [config.xAutoInitElement=false] if true initializeElement won't be called
+ * @returns {Object} this
+ */
 export default class Element {
-	/**
-	 * config {Object}
-	 * config.elementType {String} type of node we are going to be
-	 *		default "div"
-	 * config.className {String} class names the self element will take
-	 * config.innerHTML {String} innerHTML that will be applied when element it's initialized
-	 * config.renderTo {DOMElement} DOMElement in which to self append
-	 * config.xAutoInitElement {Boolean} default false, if true initializeElement won't be called
-	 */
 	constructor (config) {
 		this.initialConfig = config || {}
 		this._____LISTENERS = []
 
 		if (!this.initialConfig.xAutoInitElement)
 			this.initializeElement()
+
+		return this
 	}
 	/**
-	 * returns {undefined} initializes element and sets it's default configs
+	 * initializes the DOMElement and renders it to the renderTo config provided
+	 * @public
+	 * @returns {undefined} initializes element and sets it's default configs
 	 */
 	initializeElement() {
 		this._____ELEMENT = document.createElement(this.initialConfig.elementType || 'div')
@@ -27,15 +34,17 @@ export default class Element {
 	}
 
 	/**
-	 * returns {DOMElement} the internal element that's initialized
+	 * returns the DOMElement for direct access
+	 * @public
+	 * @returns {DOMElement}
 	 */
-	element() {
+	getElement() {
 		return this._____ELEMENT
 	}
 
 	/**
-	 * domElement {DOMElement} target on which we appendChild
-	 * returns {undefined} renders the element on whaterver element provided
+	 * @param {DOMElement} domElement target on which we appendChild
+	 * @returns {undefined} renders the element on whaterver element provided
 	 */
 	renderTo (domElement) {
 		if (!domElement)
@@ -45,8 +54,10 @@ export default class Element {
 	}
 
 	/**
-	 * event {Event}
-	 * returns {undefined} returns whatever the callback returns
+	 * it's a handle that wraps the event in order to add functionalities like e.getTarget(selector)
+	 * @private
+	 * @param {Event} event
+	 * @returns {undefined} returns whatever the callback returns
 	 */
 	_____EVT_HANDLE (event) {
 		let listenerCompound = this._____GET_EVENT_LISTENER(event.type)
@@ -87,8 +98,10 @@ export default class Element {
 	}
 
 	/**
-	 * eventName {String}
-	 * returns {Object} returns internal reference of the listener
+	 * fetches event listener index and reference by the name
+	 * @private
+	 * @param {string} eventName
+	 * @returns {Object|boolean}
 	 */
 	_____GET_EVENT_LISTENER (eventName) {
 		let listeners = this._____LISTENERS
@@ -108,7 +121,9 @@ export default class Element {
 	}
 
 	/**
-	 * returns {undefined} detaches all event listeners so it can be GC'd
+	 * detaches all the event listeners attached to the element
+	 * @private
+	 * @returns {undefined}
 	 */
 	_____DETACH_ALL_LISTENERS () {
 		let listeners = this._____LISTENERS
@@ -122,10 +137,12 @@ export default class Element {
 	}
 
 	/**
-	 * eventName {String} e.g. "click", "touchstart" all the default events
-	 * callback {Function} your callback where you handle your logic
-	 * stdArgs {Array} all the standard arguments that follow after callback
-	 * returns {undefined} attaches listener to the element
+	 * attaches event listener to element, it wraps the event and adds functionalities
+	 * @public
+	 * @param {string} eventName e.g. "click", "touchstart" all the default events
+	 * @param {Function} callback your callback where you handle your logic **check event.* for more details on the event parameter in the callback**
+	 * @param {Array} [strArgs=[]] all the standard arguments that follow after callback
+	 * @returns {undefined}
 	 */
 	on(eventName, callback, stdArgs) {
 		stdArgs = stdArgs || []
@@ -141,8 +158,10 @@ export default class Element {
 	}
 
 	/**
-	 * eventName {String} e.g. "click", "touchstart" all the default events
-	 * returns {undefined} detaches listener from the element
+	 * detaches event listener from element
+	 * @public
+	 * @param {string} eventName e.g. "click", "touchstart" all the default events
+	 * @returns {undefined}
 	 */
 	un(eventName) {
 		let listeners = this._____LISTENERS
@@ -161,10 +180,22 @@ export default class Element {
 	}
 
 	/**
-	 * returns {undefined} handles the destruction/removal of listeners and the internal element
+	 * if destroy() was called it will return true
+	 * @public
+	 * @returns {boolean}
+	 */
+	isDestroyed() {
+		return !! this._____DESTROYED
+	}
+
+	/**
+	 * handles the destruction/removal of listeners and the internal element
+	 * adds destroyed propery
+	 * @public
+	 * @returns {undefined}
 	 */
 	destroy () {
-		if (this.destroyed)
+		if (this._____DESTROYED)
 			return
 
 		this._____DETACH_ALL_LISTENERS()
@@ -176,6 +207,14 @@ export default class Element {
 
 		delete this._____ELEMENT
 
-		this.destroyed = true
+		this._____DESTROYED = true
 	}
 }
+
+/**
+ * similar to DOMElement.querySelector but instead of propagating from parent to child, it propagates from child to parent
+ *
+ * @typedef {Function} event.getTarget
+ * @param {string} selector Valid CSS selector
+ * @returns {DOMElement|null}
+ */
