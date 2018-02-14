@@ -79,7 +79,11 @@ export default class Element {
 			return target
 		}
 
-		return listener.callback.apply(this, arguments)
+		let response = listener.callback.apply(this, arguments)
+
+		delete event.getTarget
+
+		return response
 	}
 
 	/**
@@ -160,6 +164,9 @@ export default class Element {
 	 * returns {undefined} handles the destruction/removal of listeners and the internal element
 	 */
 	destroy () {
+		if (this.destroyed)
+			return
+
 		this._____DETACH_ALL_LISTENERS()
 
 		let parentNode = this._____ELEMENT.parentNode
@@ -168,5 +175,7 @@ export default class Element {
 			parentNode.removeChild(this._____ELEMENT)
 
 		delete this._____ELEMENT
+
+		this.destroyed = true
 	}
 }
