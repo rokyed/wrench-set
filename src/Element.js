@@ -141,7 +141,7 @@ export default class Element {
 	 * @public
 	 * @param {string} eventName e.g. "click", "touchstart" all the default events
 	 * @param {Function} callback your callback where you handle your logic **check event.* for more details on the event parameter in the callback**
-	 * @param {Array} [strArgs=[]] all the standard arguments that follow after callback
+	 * @param {Array} [stdArgs=[]] all the standard arguments that follow after callback
 	 * @returns {undefined}
 	 */
 	on(eventName, callback, stdArgs) {

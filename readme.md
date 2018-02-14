@@ -62,8 +62,7 @@ attaches event listener to element, it wraps the event and adds functionalities
 
 -   `eventName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** e.g. "click", "touchstart" all the default events
 -   `callback` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** your callback where you handle your logic **check event.\* for more details on the event parameter in the callback**
--   `stdArgs`  
--   `strArgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** all the standard arguments that follow after callback (optional, default `[]`)
+-   `stdArgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** all the standard arguments that follow after callback (optional, default `[]`)
 
 Returns **[undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined)** 
 
