@@ -240,4 +240,19 @@ export default class Element {
  * @typedef {Function} event.getTarget
  * @param {string} selector Valid CSS selector
  * @returns {DOMElement|null}
+ * @example
+ *
+ * ...
+ * this.on('mousedown', this.onMouseDown.bind(this))
+ * ...
+ *
+ * ...
+ * onMouseDown(e) {
+ *     let cssSelector = '.cls-x'
+ *     let myButton = e.getTarget(cssSelector)
+ *
+ *     if (myButton)
+ *         myButton.classList.add('pressed')
+ * }
+ * ...
  */

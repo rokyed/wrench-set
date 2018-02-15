@@ -125,4 +125,22 @@ Type: [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Sta
 
 -   `selector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Valid CSS selector
 
+**Examples**
+
+```javascript
+...
+this.on('mousedown', this.onMouseDown.bind(this))
+...
+
+...
+onMouseDown(e) {
+    let cssSelector = '.cls-x'
+    let myButton = e.getTarget(cssSelector)
+
+    if (myButton)
+        myButton.classList.add('pressed')
+}
+...
+```
+
 Returns **(DOMElement | null)** 
