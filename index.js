@@ -1,7 +1,7 @@
 import Element from './src/Element.js'
 
 /**
- * @typedef {Namespace} front-end-core
+ * @typedef {Namespace} wrench-set
  * @property {Class} Element
  */
 module.exports = {

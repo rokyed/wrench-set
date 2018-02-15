@@ -2,7 +2,7 @@
 
 ### Table of Contents
 
--   [front-end-core](#front-end-core)
+-   [wrench-set](#wrench-set)
 -   [Element](#element)
     -   [initializeElement](#initializeelement)
     -   [getElement](#getelement)
@@ -13,7 +13,7 @@
     -   [destroy](#destroy)
 -   [event.getTarget](#eventgettarget)
 
-## front-end-core
+## wrench-set
 
 Type: Namespace
 
