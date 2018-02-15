@@ -9,6 +9,10 @@
   "build-documentation": "./node_modules/.bin/documentation build ./index.js -o ./README.md -f md",
   "lint-documentation": "./node_modules/.bin/documentation lint ./index.js"
  },
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/rokyed/wrench-set.git"
+ },
  "author": "Andrei Bazavan <rokyed@gmail.com>",
  "license": "ISC",
  "devDependencies": {
