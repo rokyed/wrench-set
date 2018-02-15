@@ -1,6 +1,6 @@
-import frontEndCore from './../index.js'
+import wrenchSet from './../index.js'
 
-class MyElement extends frontEndCore.Element {
+class MyElement extends wrenchSet.Element {
 	constructor(config, ...args) {
 		super(config, ...args)
 
@@ -16,7 +16,7 @@ class MyElement extends frontEndCore.Element {
 }
 
 
-class MyParentElement extends frontEndCore.Element {
+class MyParentElement extends wrenchSet.Element {
 	constructor() {
 		super({
 			className: 'alinuska',

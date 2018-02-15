@@ -9,6 +9,29 @@
  * @param {DOMElement} [config.renderTo=null] element on which to render, if not provided, you have to call renderTo manually to render on element
  * @param {boolean} [config.xAutoInitElement=false] if true initializeElement won't be called
  * @returns {Object} this
+ * @example
+ *
+ * import wrenchSet from 'wrench-set'
+ *
+ * class MyClass extends wrenchSet.Element {
+ *     constructor() {
+ *         super({
+ *             className: "my-CSS-Class",
+ *             elementType: "span",
+ *             innerHTML: "Hi it's me :) <b class='my-button'><i>XOX</i></b>",
+ *             renderTo: document.body
+ *         })
+ *
+ *         this.on('click', this.onClick.bind(this))
+ *     }
+ *
+ *     onClick (e) {
+ *         if (e.getTarget('.my-button'))
+ *             console.log('do something')
+ *     }
+ * }
+ *
+ * let myInstance = new MyClass()
  */
 export default class Element {
 	constructor (config) {

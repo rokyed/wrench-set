@@ -32,6 +32,32 @@ Type: Namespace
     -   `config.renderTo` **DOMElement** element on which to render, if not provided, you have to call renderTo manually to render on element (optional, default `null`)
     -   `config.xAutoInitElement` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true initializeElement won't be called (optional, default `false`)
 
+**Examples**
+
+```javascript
+import wrenchSet from 'wrench-set'
+
+class MyClass extends wrenchSet.Element {
+    constructor() {
+        super({
+            className: "my-CSS-Class",
+            elementType: "span",
+            innerHTML: "Hi it's me :) <b class='my-button'><i>XOX</i></b>",
+            renderTo: document.body
+        })
+
+        this.on('click', this.onClick.bind(this))
+    }
+
+    onClick (e) {
+        if (e.getTarget('.my-button'))
+            console.log('do something')
+    }
+}
+
+let myInstance = new MyClass()
+```
+
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** this
 
 ### initializeElement
