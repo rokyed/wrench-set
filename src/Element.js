@@ -57,11 +57,15 @@ export default class Element {
 	}
 
 	/**
-	 * returns the DOMElement for direct access
+	 * returns the DOMElement for direct access or if querySelector is passed will return the matching child of the DOMElement
 	 * @public
+	 * @param {string} [querySelector=null] css selector to get the child of the element, if not provided, it will return the main element
 	 * @returns {DOMElement}
 	 */
-	getElement() {
+	getElement(querySelector) {
+		if (querySelector)
+			return this._____ELEMENT.querySelector(querySelector)
+
 		return this._____ELEMENT
 	}
 

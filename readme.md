@@ -83,7 +83,11 @@ Returns **[undefined](https://developer.mozilla.org/docs/Web/JavaScript/Referenc
 
 ### getElement
 
-returns the DOMElement for direct access
+returns the DOMElement for direct access or if querySelector is passed will return the matching child of the DOMElement
+
+**Parameters**
+
+-   `querySelector` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** css selector to get the child of the element, if not provided, it will return the main element (optional, default `null`)
 
 Returns **DOMElement** 
 
