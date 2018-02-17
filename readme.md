@@ -2,6 +2,7 @@
 
 ### Table of Contents
 
+-   [Info](#info)
 -   [wrench-set](#wrench-set)
 -   [Element](#element)
     -   [initializeElement](#initializeelement)
@@ -12,6 +13,20 @@
     -   [isDestroyed](#isdestroyed)
     -   [destroy](#destroy)
 -   [event.getTarget](#eventgettarget)
+
+## Info
+
+To install:
+
+```bash
+npm install --save wrench-set
+```
+
+If you have any issues, features, requests, drop them in the issues section.
+
+Please give enough info, so I can replicate, in case of issues.
+
+Type: [Info](#info)
 
 ## wrench-set
 
