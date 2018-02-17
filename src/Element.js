@@ -53,7 +53,8 @@ export default class Element {
 		this._____ELEMENT.className = this.initialConfig.className || ''
 		this._____ELEMENT.innerHTML = this.initialConfig.innerHTML || ''
 
-		this.renderTo(this.initialConfig.renderTo)
+		if (this.initialConfig.renderTo)
+			this.renderTo(this.initialConfig.renderTo)
 	}
 
 	/**
@@ -74,9 +75,6 @@ export default class Element {
 	 * @returns {undefined} renders the element on whaterver element provided
 	 */
 	renderTo (domElement) {
-		if (!domElement)
-			return
-
 		domElement.appendChild(this._____ELEMENT)
 	}
 
