@@ -43,7 +43,7 @@ class MyParentElement extends wrenchSet.Element {
 			this.myElement.destroy()
 
 		this.myElement = new MyElement({
-			renderTo: this.element().querySelector('.my-element-will-go-here'),
+			renderTo: this.getElement('.my-element-will-go-here'),
 			className: 'bro jack rick',
 			innerHTML: `
 			<div class="bob" style="width: 100px; outline: 1px solid #000;">

@@ -99,10 +99,19 @@ export default class Element {
 				}
 
 				let parent = target.parentNode
+				let targetInList = parent && parent.querySelector && parent.querySelectorAll(selector) || []
+				let isOurTarget = false
 
-				if (parent && parent.querySelector && parent.querySelector(selector) === target) {
+				for (let i = 0; i < targetInList.length; i++) {
+					if (targetInList[i] === target){
+						isOurTarget = true
+						break
+					}
+				}
+
+				if (isOurTarget) {
 					break
-				} else if (!parent) {
+				}else if (!parent) {
 					target = null
 					break
 				} else {
