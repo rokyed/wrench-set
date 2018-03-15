@@ -1,4 +1,4 @@
-import Element from './src/Element.js'
+import Element from './classes/Element.js'
 
 /**
  * @typedef {Namespace} wrench-set
