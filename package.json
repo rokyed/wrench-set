@@ -5,9 +5,8 @@
  "main": "lib/index.js",
  "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",
-  "build-documentation": "./node_modules/.bin/documentation build ./index.js -o ./README.md -f md",
-  "lint-documentation": "./node_modules/.bin/documentation lint ./index.js",
-  "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+  "build-documentation": "./node_modules/.bin/documentation build src/index.js -o ./README.md -f md",
+  "lint-documentation": "./node_modules/.bin/documentation lint src/index.js",
   "prepack": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
  },
  "repository": {
@@ -19,9 +18,12 @@
  "devDependencies": {
   "babel-cli": "^6.26.0",
   "babel-core": "^6.26.0",
-  "babel-preset-es2015": "^6.24.1"
+  "babel-preset-es2015": "^6.24.1",
+  "documentation": "^6.1.0"
  },
  "babel": {
-  "presets": ["es2015"]
+  "presets": [
+   "es2015"
+  ]
  }
 }
