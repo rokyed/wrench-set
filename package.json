@@ -7,7 +7,8 @@
   "test": "echo \"Error: no test specified\" && exit 1",
   "build-documentation": "./node_modules/.bin/documentation build ./index.js -o ./README.md -f md",
   "lint-documentation": "./node_modules/.bin/documentation lint ./index.js",
-  "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
+  "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+  "prepack": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
  },
  "repository": {
   "type": "git",
